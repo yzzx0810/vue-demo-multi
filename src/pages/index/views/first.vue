@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <button @click="buttonTest">Test</button>
-    131231345379797086786
+    <button @click="buttonTest">First</button>
+    <span>131231345379797086786</span>
   </div>
-</template>
+</template>l
 
 <script>
   //  import mui from "@/src/assets/js/mui.js"
-  import { Indicator } from 'mint-ui';
+  import {Indicator} from 'mint-ui';
 
   const login = {
-    components:{
+    components: {
       Indicator
     },
     methods: {
@@ -29,8 +29,15 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../scss/login/login";
+  @import "../../../scss/index/first";
+
+  .home {
+    span {
+      font-size: 10px;
+      font-weight: bold;
+    }
+  }
 </style>
-<style lang="css" scoped>
-  @import "../../css/login/login.css";
-</style>
+<!--<style lang="css" scoped>-->
+<!--@import "../../../css/test/login.css";-->
+<!--</style>-->
