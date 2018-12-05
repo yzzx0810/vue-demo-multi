@@ -16,14 +16,14 @@ module.exports = {
   entry: utils.entries(),
   output: {
     path: path.resolve(__dirname, "../dist"),//编译输出的文件目录绝对路径
-    filename: "js/[name].[chunkhash].js",
-    publicPath: "/"
+    filename: "js/[name].[chunkhash].js",//文件名
+    publicPath: "./"//引入资源文件的前缀公共路径
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.css', '.scss'],
     alias: {
       "vue": 'vue/dist/vue.js',
-      "@": path.join(__dirname, "..")
+      "@": path.join(__dirname, "..", "src")
     }
   },
   module: {//loader加载执行顺序从右往左

@@ -14,14 +14,14 @@ module.exports = {
   entry: utils.entries(),
   output: {
     path: path.resolve(__dirname, "../dist"),//编译输出的文件目录绝对路径
-    filename: "js/[name].js",
-    publicPath: "/"
+    filename: "js/[name].js",//文件名
+    publicPath: "/"//引入资源文件的前缀公共路径
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.css', '.scss'],
     alias: {
       "vue": 'vue/dist/vue.js',
-      "@": path.join(__dirname, "..")
+      "@": path.join(__dirname, "..", "src")
     }
   },
   module: {//loader加载执行顺序从右往左
@@ -126,7 +126,7 @@ module.exports = {
     ]
   },
   devServer: {
-    clientLogLevel: 'warning',//日志级别
+    clientLogLevel: "error",//日志级别，可能的值有 none, error, warning 或者 info（默认值）。
     contentBase: false,//告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要
     compress: true,//当它被设置为true的时候对所有的服务器资源采用gzip压缩
     historyApiFallback: false,//404页面是否跳转
@@ -139,7 +139,7 @@ module.exports = {
       errors: true
     },
     publicPath: "/",//此路径下的打包文件可在浏览器中访问
-    quiet: false,//启用 quiet 后，除了初始启动信息之外的任何内容都不会被打印到控制台。意味着来自 webpack 的错误或警告在控制台不可见。
+    quiet: true,//启用 quiet 后，除了初始启动信息之外的任何内容都不会被打印到控制台。意味着来自 webpack 的错误或警告在控制台不可见。
     watchOptions: {//监听文件变化，当它们修改后会重新编译。
       aggregateTimeout: 500,//当第一个文件更改，会在重新构建前增加延迟。以毫秒为单位
       poll: false,//是否开启轮询，如果开启则设置定时间隔时间
