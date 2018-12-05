@@ -2,6 +2,7 @@
   <div class="home">
     <button @click="buttonTest">First</button>
     <span>131231345379797086786</span>
+    <router-view></router-view>
   </div>
 </template>l
 
@@ -9,23 +10,18 @@
   //  import mui from "@/src/assets/js/mui.js"
   import {Indicator} from 'mint-ui';
 
-  const login = {
+  const first = {
     components: {
       Indicator
     },
     methods: {
-      buttonTest: () => {
-        let a = "fadfasf";
-        window.alert(a);
-        Indicator.open('加载中...');
-        setTimeout(function () {
-          Indicator.close();
-        }, 2000);
+      buttonTest: function () {
+        this.$router.push({name: "second"});
       }
     }
   };
 
-  export default login;
+  export default first;
 </script>
 
 <style lang="scss" scoped>
@@ -38,6 +34,3 @@
     }
   }
 </style>
-<!--<style lang="css" scoped>-->
-<!--@import "../../../css/test/login.css";-->
-<!--</style>-->

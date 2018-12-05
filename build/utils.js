@@ -12,7 +12,7 @@ exports.entries = () => {
   let entryFiles = glob.sync(PAGE_PATH + '/*/*.js');//page目录下所有的js入口文件
   let map = {};
   entryFiles.forEach((filePath) => {
-    var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
+    let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
     map[filename] = filePath
   });
   return map
@@ -29,7 +29,7 @@ exports.htmlPlugins = () => {
       template: filePath,//模板来源
       filename: filename + '.html',//文件名
       inject: true,//true: 默认值,script标签位于html文件的body底部;body:script标签位于html文件的body底部;head: script标签位于html文件的head中;false: 不插入生成的js文件，这个几乎不会用到的
-      // chunks: [filename]// 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
+      chunks: ["manifest", "vendors", filename]// 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
     };
     arr.push(new HtmlWebpackPlugin(conf));
   });
