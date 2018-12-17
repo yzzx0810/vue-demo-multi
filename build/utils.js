@@ -1,9 +1,8 @@
-// glob是webpack安装时依赖的一个第三方模块，该模块允许你使用 *等符号, 例如lib/*.js就是获取lib文件夹下的所有js后缀名的文件
-const glob = require('glob');
+const glob = require('glob');// glob是webpack安装时依赖的一个第三方模块，该模块允许你使用 *等符号, 例如lib/*.js就是获取lib文件夹下的所有js后缀名的文件
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 // 取得相应的页面路径，因为之前的配置，所以是src文件夹下的pages文件夹
-var PAGE_PATH = path.resolve(__dirname, '../src/pages');
+let PAGE_PATH = path.resolve(__dirname, '../src/pages');
 
 
 //多入口配置
@@ -29,7 +28,12 @@ exports.htmlPlugins = () => {
       template: filePath,//模板来源
       filename: filename + '.html',//文件名
       inject: true,//true: 默认值,script标签位于html文件的body底部;body:script标签位于html文件的body底部;head: script标签位于html文件的head中;false: 不插入生成的js文件，这个几乎不会用到的
-      chunks: ["manifest", "vendors", filename]// 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
+      chunks: ["manifest", "vendors", filename],// 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
+      minify: { // 压缩 HTML 的配置
+        collapseWhitespace: true,
+        removeComments: true,
+        useShortDoctype: true
+      }
     };
     arr.push(new HtmlWebpackPlugin(conf));
   });
