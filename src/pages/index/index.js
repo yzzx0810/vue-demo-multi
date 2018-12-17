@@ -11,15 +11,15 @@ Vue.use(VueRouter);
 Vue.use(MintUI);
 
 const router = new VueRouter({
-  mode: "hash",
-  routes: indexRoutes
+    mode: "hash",
+    routes: indexRoutes
 });
 
 new Vue({
-  el: "#main",
-  router,
-  components: {
-    first
-  },
-  template: "<first></first>"
+    el: "#main",
+    router,
+    components: {
+        first
+    },
+    template: "<first></first>"
 });

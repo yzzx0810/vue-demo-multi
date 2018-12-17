@@ -6,9 +6,9 @@ import 'lib-flexible';
 
 Vue.use(MintUI);
 new Vue({
-  el: "#main",
-  components: {
-    login
-  },
-  template: "<login></login>"
+    el: "#main",
+    components: {
+        login
+    },
+    template: "<login></login>"
 });
