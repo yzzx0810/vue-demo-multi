@@ -3,24 +3,20 @@
         <button @click="buttonTest">Test</button>
         <span>131231345379797086786</span>
     </div>
-</template>l
+</template>
 
 <script>
-    //  import mui from "@/src/assets/js/mui.js"
-    import {Indicator} from 'mint-ui';
 
     const login = {
-        components: {
-            Indicator
-        },
+        components: {},
         methods: {
-            buttonTest: () => {
-                let a = "fadfasf";
-                window.alert(a);
-                Indicator.open('加载中...');
-                setTimeout(function () {
-                    Indicator.close();
-                }, 2000);
+            buttonTest() {
+                let param = {
+                    name: "niu niu niu"
+                };
+                this.$store.dispatch('setNameAction', param);
+                let name = this.$store.getters.getName();
+                console.log("getters name ======" + name);
             }
         }
     };

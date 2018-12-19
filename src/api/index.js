@@ -1,5 +1,4 @@
-const {axios} = require('axios');
-const {Tools} = require('../util/common');
+import axios from 'axios';
 
 // 通用配置 --> 指定的配置将与该实例的通用配置合并
 let http = axios.create({
@@ -29,7 +28,7 @@ let http = axios.create({
 });
 
 const apiAxios = (method, url, request, successCallback, errorCallback) => {
-    request.CSRFToken = Tools.getCookie("CSRFToken");
+    // request.CSRFToken = Tools.getCookie("CSRFToken");
     let req = JSON.stringify(request);
     http({
         method: method,
