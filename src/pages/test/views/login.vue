@@ -15,6 +15,8 @@
                     name: "niu niu niu"
                 };
                 this.$store.dispatch('setNameAction', param);
+                let name = this.$store.getters.getName();
+                console.log("getters name ======" + name);
             }
         }
     };
