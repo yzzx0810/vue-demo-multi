@@ -10,7 +10,7 @@ let state = {
 };
 Vue.use(Vuex);
 const testStore = new Vuex.Store({
-    strict: process.env.NODE_ENV !== "production",
+    strict: true,
     state,
     getters,
     actions,

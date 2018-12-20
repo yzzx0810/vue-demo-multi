@@ -33,7 +33,7 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
-                loader: ["vue-loader"]
+                loader: ['vue-loader']
             },
             {
                 test: /\.css/,
