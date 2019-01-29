@@ -10,6 +10,9 @@ const ExtractTextPluginScss = new ExtractTextPlugin('css/[name]/[name]-two.[chun
 const ExtractTextPluginLess = new ExtractTextPlugin('css/[name]/[name]-three.[chunkhash].css');
 const utils = require('./utils');
 
+const env = require('../config/' + process.env.env_config + '.env.js');
+console.log("==========>" + process.env.env_config);
+
 module.exports = {
     mode: 'production',
     devtool: 'cheap-module-source-map',
@@ -125,6 +128,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': env
+        }),
         new webpack.ProvidePlugin({}),
         new VueLoaderPlugin(),//vue15.0版本以上需结合该插件
         // new BundleAnalyzer(),//图形化表示各个chunk有哪些模块组成

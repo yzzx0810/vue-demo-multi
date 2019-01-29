@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const prodWebpackConfig = require('./webpack.config.prod');
+const prodWebpackConfig = require('./webpack.config.build');
 const ora = require('ora');//实现node命令行环境的loading效果，和显示各种状态的图标等
 const chalk = require('chalk');//颜色插件
 
