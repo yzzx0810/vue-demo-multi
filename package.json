@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.config.dev.js",
-    "test": "webpack --config build/webpack.config.build.js",
+    "test": "webpack --config build/webpack.config.prod.js",
     "build": "cross-env env_config=test node build/build.js"
   },
   "author": "xinzhang",
@@ -53,7 +53,6 @@
     "webpack": "^4.26.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
-    "webpack-merge": "^4.2.1"
+    "webpack-dev-server": "^3.1.10"
   }
 }
