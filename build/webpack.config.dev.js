@@ -10,8 +10,6 @@ const ExtractTextPluginScss = new ExtractTextPlugin('css/[name]/[name]-two.css')
 const ExtractTextPluginLess = new ExtractTextPlugin('css/[name]/[name]-three.css');
 const utils = require('./utils');
 
-const env = require('../config/' + process.env.env_config + '.env.js');
-console.log("==========>" + process.env.env_config);
 
 const webpackConfig = merge(baseWebpackConfig, {
     mode: "development",
@@ -37,9 +35,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         }
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': env
-        }),
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin(),//实现页面自动刷新，与hot：true配对使用
         ExtractTextPluginCss,
